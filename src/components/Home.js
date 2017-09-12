@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import _ from 'lodash'
 import { connect } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 import { initFilms } from '../reducers/app'
 import Favorite from './Favorite'
 import LeastFavorite from './LeastFavorite'
+import MoviePair from './MoviePair'
 
 class Home extends Component {
   componentDidMount() {
@@ -12,16 +14,24 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Col md={3} style={{ padding: 20 }}>
-          <Favorite />
-          <LeastFavorite />
-        </Col>
+      <Grid>
+        <Row>
+          <Col md={3} style={{ padding: 20 }}>
+            <Favorite />
+            <LeastFavorite />
+          </Col>
 
-        <Col md={9} style={{ backgroundColor: "green", height: 100 }}>
-
-        </Col>
-      </div>
+          <Col md={9} style={{ backgroundColor: "green", height: 100 }}>
+            <Row style={{padding: 20}}>
+              {
+                _.chunk(this.props.films, 2).map((pair, index) => {
+                  return(<MoviePair key={index} pair={pair} />)
+                })
+              }
+            </Row>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
@@ -31,4 +41,10 @@ const mapDispatchToProps = function(dispatch) {
     initFilms: () => dispatch(initFilms()),
   }
 }
-export default connect(null, mapDispatchToProps)(Home);
+
+const mapStateToProps = function(state) {
+  return {
+    films: state.app.films,
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

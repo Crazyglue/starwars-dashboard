@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import { Panel } from 'react-bootstrap'
-import { initFilms } from '../reducers/app'
 
 class Favorite extends Component {
 
