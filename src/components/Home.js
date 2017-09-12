@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 import { initFilms } from '../reducers/app'
+import Favorite from './Favorite'
+import LeastFavorite from './LeastFavorite'
 
 class Home extends Component {
   componentDidMount() {
@@ -10,15 +12,16 @@ class Home extends Component {
 
   render() {
     return (
-      <Row>
-        <Col md={4} style={{ backgroundColor: "red", height: 100 }}>
-
+      <div>
+        <Col md={3} style={{ padding: 20 }}>
+          <Favorite />
+          <LeastFavorite />
         </Col>
 
-        <Col md={8} style={{ backgroundColor: "green", height: 100 }}>
+        <Col md={9} style={{ backgroundColor: "green", height: 100 }}>
 
         </Col>
-      </Row>
+      </div>
     );
   }
 }
