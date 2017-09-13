@@ -33,6 +33,12 @@ class Home extends Component {
             </Row>
           </Col>
         </Row>
+        <Row>
+          <footer>
+            <p>By <a href="http://ericdobroveanu.com">Eric Dobroveanu</a></p>
+            <p>View on <a href="https://github.com/Crazyglue/starwars-dashboard">Github</a></p>
+          </footer>
+        </Row>
       </Grid>
     );
   }
