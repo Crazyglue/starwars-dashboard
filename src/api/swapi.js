@@ -25,8 +25,21 @@ export function getCharacterInfo(url) {
       reject(error)
     })
     .then((response) => {
-      console.log("response", response)
       resolve(response.data)
+    })
+  })
+}
+
+export function getMoviePoster(movieTitle) {
+  const url = 'https://api.themoviedb.org/3/search/movie?api_key=f907bcb4d2c2acc471f7ea8b7ab6b764&query=' + movieTitle
+  return new Promise((resolve, reject) => {
+    axios.get(url)
+    .catch((error) => {
+      console.warn(error)
+      reject(error)
+    })
+    .then((response) => {
+      resolve(response.data.results[0].poster_path)
     })
   })
 }
