@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Col, Image } from 'react-bootstrap'
+import Movie from './Movie'
+import _ from 'lodash'
 
 class MoviePair extends Component {
   render() {
@@ -17,17 +20,3 @@ class MoviePair extends Component {
 }
 
 export default MoviePair;
-
-class Movie extends Component {
-  render() {
-    var { movie } = this.props
-
-    return(
-      <div>
-        <Image src={movie.poster_path} style={{ width: 200 }} alt="242x200" />
-        <h3>{movie.title} ({new Date(movie.release_date).getFullYear()})</h3>
-        <p>{movie.director}</p>
-      </div>
-    )
-  }
-}
