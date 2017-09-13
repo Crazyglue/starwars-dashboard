@@ -6,7 +6,7 @@ class LeastFavorite extends Component {
   render() {
     return (
       <Panel header="Least Favorite Character">
-        <h5>Jar jar binks. Need I say more?</h5>
+        <h5>Jar jar binks. He's pretty annoying. Need I say more?</h5>
       </Panel>
     );
   }
