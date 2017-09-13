@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Col, Image } from 'react-bootstrap'
+import { Image } from 'react-bootstrap'
 import _ from 'lodash'
 import ContentLoader, { Rect } from 'react-content-loader'
 
@@ -17,20 +17,22 @@ class Movie extends Component {
 
     return(
       <div style={{ width: 200 }}>
-        <Image src={movie.poster_path} style={{ width: 200 }} alt="242x200" />
+        <Image src={movie.poster_path} style={{ width: 200, height: 300 }} alt="242x200" />
         <h4>{movie.title}</h4>
         <p>{movie.director}</p>
 
         {
           filteredCharacters.length > 0 ?
             <ul>
-              {filteredCharacters.map(character => {
-                return(
-                  <li key={character.name}>
-                    {character.name}
-                  </li>
-                )
-              })}
+              {
+                filteredCharacters.map(character => {
+                  return(
+                    <li key={character.name}>
+                      {character.name}
+                    </li>
+                  )
+                })
+              }
             </ul>
           :
           <ContentLoader>
