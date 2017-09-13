@@ -27,19 +27,17 @@ export function initFilms() {
         return films
       })
       .then(films => {
-        _.map(films, (film) => {
-          var characters = _.uniq(_.flatten(_.map(films, film => { // get a unique list of all characters
-            return film.characters
-          })))
+        var characters = _.uniq(_.flatten(_.map(films, film => { // get a unique list of all characters
+          return film.characters
+        })))
 
-          Promise.all(_.map(characters, (characterURL, index) => {
-            return getCharacterInfo(characterURL)
-          }))
-          .then(characterDataArray => {
-            dispatch({
-              type: GET_CHARACTERS,
-              payload: characterDataArray
-            })
+        Promise.all(_.map(characters, (characterURL, index) => {
+          return getCharacterInfo(characterURL)
+        }))
+        .then(characterDataArray => {
+          dispatch({
+            type: GET_CHARACTERS,
+            payload: characterDataArray
           })
         })
       })
