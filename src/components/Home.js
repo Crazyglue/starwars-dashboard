@@ -6,6 +6,7 @@ import { initFilms } from '../reducers/app'
 import Favorite from './Favorite'
 import LeastFavorite from './LeastFavorite'
 import MoviePair from './MoviePair'
+import Histogram from './Histogram'
 
 class Home extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class Home extends Component {
           <Col md={3} style={{ padding: 20 }}>
             <Favorite />
             <LeastFavorite />
+            <Histogram />
           </Col>
 
           <Col md={9}>
