@@ -21,7 +21,7 @@ class Home extends Component {
             <LeastFavorite />
           </Col>
 
-          <Col md={9} style={{ backgroundColor: "green", height: 100 }}>
+          <Col md={9}>
             <Row style={{padding: 20}}>
               {
                 _.chunk(this.props.films, 2).map((pair, index) => {
